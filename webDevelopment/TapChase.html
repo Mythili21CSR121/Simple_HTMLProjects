@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        #first{
+            height:15%;
+            width:15%;
+            background-image: url("https://static.vecteezy.com/system/resources/thumbnails/011/658/873/small/cute-cartoon-fish-png.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        body{
+            background-image: url("https://t4.ftcdn.net/jpg/04/34/07/97/360_F_434079732_QaYqs2nBOiRRVu2AOAyqE5EiKzQ5zudG.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>TapChase: Random Box Rendezvous</h1><br>
+    <p id="timer">time : 1:00</p>
+    <p id="total"> total score: 0</p>
+    <div onclick="func()" id="first"> </div></center>
+</body>
+<script>
+    var count=0;
+    function func(){
+        count+=1;
+        var a="total score: "+count;
+        document.getElementById("total").innerHTML=a;
+        document.getElementById("first").style.marginLeft=Math.random()*600+"px";
+        document.getElementById("first").style.marginTop=Math.random()*300+"px";
+        document.getElementById("first").style.marginRight=Math.random()*400+"px";
+    }
+    var seconds=60;
+    function timer(){
+        seconds--;
+        var min=Math.floor(seconds/60);
+        var rem=seconds%60;
+        if(rem<10)
+        rem="0"+rem;
+    document.getElementById("timer").innerHTML="time : "+min+":"+rem;
+    if(seconds==0){
+        clearTimeout(timerId);
+        window.alert("game over");
+        location.reload();
+    }
+    }
+    var timerId=setInterval(timer,1000);
+</script>
+</html>
